@@ -1,15 +1,10 @@
-var Coffee = require("coffee-script");
-
-Coffee.register();
-
-//process.env.NODE_ENV = "production";
-
 var nconf = require("nconf")
   , http = require("http")
   , server = require("./app")
   , domain = require("domain")
   , serverDomain = domain.create();
 
+process.env.NODE_ENV = "production";
 
 serverDomain.run(function(){
   http.createServer(function(req, res){
