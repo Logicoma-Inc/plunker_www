@@ -7,7 +7,7 @@ module.exports.middleware = function(options) {
       return next();
     }
     if (req.get('host') === options.from) {
-      return res.redirect("http://" + options.to + req.url);
+      return res.redirect("https://" + options.to + req.url);
     } else {
       return next();
     }
