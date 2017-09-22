@@ -2,7 +2,7 @@ var env, host, nconf;
 
 nconf = require("nconf");
 
-env = process.env.NODE_ENV || "development";
+env = process.env.NODE_ENV || "production";
 
 nconf.use("memory").argv().env().file({
   file: "config." + env + ".json"

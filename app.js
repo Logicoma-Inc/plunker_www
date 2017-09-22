@@ -151,7 +151,7 @@ app.post("/edit/:plunkId?", addSession, maybeLoadPlunk, function(req, res, next)
     description: req.body.description || (req.plunk ? req.plunk.description : ""),
     tags: req.body.tags || (req.plunk ? req.plunk.tags : []),
     files: {},
-    'private': (req.body["private"] || (req.plunk ? req.plunk["private"] : true)) !== "false"
+    'private': (req.body.private || (req.plunk ? req.plunk.private : true)) !== "false"
   };
   if (req.body.files) {
     ref = req.body.files;
@@ -260,7 +260,7 @@ hbs.registerHelper("syntaxHilightCode", function() {
   syntaxMode = modelist.getModeForPath(this.filename);
   syntaxMode = syntaxMode ? syntaxMode.mode : 'ace/mode/text';
   Mode = require('ace/lib/' + syntaxMode).Mode;
-  rendered = highlighter.renderSync(this.content, new Mode, theme);
+  rendered = highlighter.renderSync(this.content, new Mode(), theme);
   return new hbs.SafeString(rendered.html);
 });
 

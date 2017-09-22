@@ -20,11 +20,11 @@ env.jsCompressor = 'uglify';
 Rimraf.sync(buildDir);
 
 
-['apps/landing.coffee', 'apps/editor.coffee']
+['apps/landing.js', 'apps/editor.js']
     .forEach(entry => {
         console.log('Building: %s', entry);
         
-        var target = Path.join(buildDir, 'js', entry.replace('.coffee', `-${Package.version}.js`));
+        var target = Path.join(buildDir, 'js', entry.replace('.js', `-${Package.version}.js`));
         var asset = env.findAsset(entry, { bundle: true });
         
         Fs.ensureDirSync(Path.dirname(target));

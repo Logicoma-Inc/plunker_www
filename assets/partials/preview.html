@@ -26,14 +26,14 @@
       <div class="frame">
         <iframe frameborder="0" width="100%" height="100%" ng-src="{{plunk.raw_url}}"></iframe>
       </div>
-      
+
       <div class="about">
         <plunker-plunk-info plunk="plunk"></plunker-plunk-info>
 
         Last saved by
         <plunker-inline-user user="plunk.user"></plunker-inline-user>
         <abbr timeago="plunk.updated_at"></abbr>
-        
+
       </div>
     </div>
   </div>
@@ -49,8 +49,10 @@
         <div class="span1 type"><i ng-class="event.icon"></i></div>
         <div class="span11">
           <plunker-inline-user user="event.user"></plunker-inline-user>
-          forked this plunk off of <plunker-inline-plunk plunk="event.parent">{{event.parent.id}}</plunker-inline-plunk>
-          by <plunker-inline-user user="event.parent.user"></plunker-inline-user>
+          forked this plunk off of
+          <plunker-inline-plunk plunk="event.parent">{{event.parent.id}}</plunker-inline-plunk>
+          by
+          <plunker-inline-user user="event.parent.user"></plunker-inline-user>
           <abbr timeago="event.date"></abbr>.
         </div>
       </div>
@@ -66,7 +68,8 @@
         <div class="span1 type"><i ng-class="event.icon"></i></div>
         <div class="span11">
           <plunker-inline-user user="event.user"></plunker-inline-user>
-          created <plunker-inline-plunk plunk="event.child">{{event.child.id}}</plunker-inline-plunk>
+          created
+          <plunker-inline-plunk plunk="event.child">{{event.child.id}}</plunker-inline-plunk>
           by forking this plunk
           <abbr timeago="event.date"></abbr>.
         </div>
