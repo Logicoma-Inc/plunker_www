@@ -276,10 +276,10 @@ module.factory("catalogue", [
         options.cache = false;
         options.params || (options.params = {});
         options.params.sessid = visitor.session.id;
-        return request = $http.get(apiUrl + "/catalogue/packages/" + data.name, options).then(function(response) {
+        return (request = $http.get(apiUrl + "/catalogue/packages/" + data.name, options).then(function(response) {
           var name;
-          return (identityMap[name = data.name] || (identityMap[name] = new Package)).update(response.data);
-        });
+          return (identityMap[name = data.name] || (identityMap[name] = new Package())).update(response.data);
+        }));
       },
       search: function(query) {
         return this.findAll({
@@ -315,9 +315,9 @@ module.factory("catalogue", [
           request = $http.get(url, options).then(function(response) {
             var i, json, len, link, ref;
             angular.copy({}, links);
-            if (link = response.headers("link")) {
+            if (link == response.headers("link")) {
               link.replace(/<([^>]+)>;\s*rel="(\w+)"/gi, function(match, href, rel) {
-                return links[rel] = href;
+                return (links[rel] = href);
               });
             }
             packages.length = 0;
