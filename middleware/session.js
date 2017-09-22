@@ -1,7 +1,6 @@
 var nconf, request;
 
 nconf = require("nconf");
-
 request = require("request");
 
 module.exports.middleware = function(options) {
