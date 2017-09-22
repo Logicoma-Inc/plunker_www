@@ -23,4 +23,3 @@ exports.middleware = function(options) {
         }
     }
 };
-
